@@ -1,0 +1,91 @@
+@import "tailwindcss";
+@variant dark (&:where(.dark, .dark *));
+.scrollbar-hide::-webkit-scrollbar {
+  display: none;
+}
+.scrollbar-hide {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+
+@keyframes shimmer {
+  0% {
+    background-position: -200px 0;
+  }
+  100% {
+    background-position: 200px 0;
+  }
+}
+
+.animate-pulse {
+  background: linear-gradient(
+    90deg,
+    rgba(100, 100, 100, 0.1) 25%,
+    rgba(255, 255, 255, 0.2) 50%,
+    rgba(100, 100, 100, 0.1) 75%
+  );
+  background-size: 400px 100%;
+  animation: shimmer 1.5s infinite linear;
+}
+.swal2-container {
+  backdrop-filter: blur(8px);
+  background-color: rgba(0, 0, 0, 0.4) !important;
+}
+.fade-in {
+  opacity: 0;
+  animation: fadeIn 0.4s forwards;
+}
+
+@keyframes fadeIn {
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes shake {
+  0% {
+    transform: translateX(0);
+  }
+  10% {
+    transform: translateX(-5px);
+  }
+  20% {
+    transform: translateX(5px);
+  }
+  30% {
+    transform: translateX(-5px);
+  }
+  40% {
+    transform: translateX(5px);
+  }
+  50% {
+    transform: translateX(-4px);
+  }
+  60% {
+    transform: translateX(4px);
+  }
+  70% {
+    transform: translateX(-3px);
+  }
+  80% {
+    transform: translateX(3px);
+  }
+  90% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(0);
+  }
+}
+
+.shake {
+  animation: shake 0.4s linear;
+}
+
+.shake {
+  animation: shake 1s ease-in-out;
+}
+
+@plugin "daisyui" {
+  themes: light --default, dark --prefersdark;
+}
